@@ -2,11 +2,12 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Shaker : MonoBehaviour, IInteractible
 {
     public int[] val = { 0, 0, 0, 0, 0, 0 };
-
+    int[] empty = { 0, 0, 0, 0, 0, 0 };
     [SerializeField] GameObject shotGlass;
 
     private void Start()
@@ -23,16 +24,25 @@ public class Shaker : MonoBehaviour, IInteractible
     }
     public void Interact()
     {
-        if (shotGlass.gameObject.active == false)
+        if(val != empty)
         {
-            shotGlass.gameObject.SetActive(true);
+            if (shotGlass.gameObject.active == false)
+            {
+                shotGlass.gameObject.SetActive(true);
+            }
+
+            for(int i = 0; i <= 5; i++)
+            {
+                shotGlass.GetComponent<ShotGlass>().values[i] = val[i];
+            }
+            
+
+            
+
+
+            Array.Clear(val, 0, val.Length);
         }
-
-        shotGlass.GetComponent<ShotGlass>().SetValues(val);
-
         
-
-        Array.Clear(val, 0, 6);
         
     }
 }
