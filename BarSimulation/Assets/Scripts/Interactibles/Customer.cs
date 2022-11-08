@@ -6,9 +6,8 @@ using System.Linq;
 
 public class Customer : MonoBehaviour, IInteractible
 {
-    public int[] values = { 0, 1, 0, 0, 0, 0 };
+    public int[] values = { 0, 0, 0, 0, 0, 0 };
     GameObject playerGlass;
-
 
     private void Start()
     {
@@ -23,8 +22,6 @@ public class Customer : MonoBehaviour, IInteractible
             playerGlass = GameObject.Find("Glass");
         }
         
-        
-        
     }
 
     
@@ -35,11 +32,9 @@ public class Customer : MonoBehaviour, IInteractible
 
             if (values.SequenceEqual(playerGlass.GetComponent<ShotGlass>().GetValues()))
             {
-                Debug.Log("YES");
                 gameObject.SetActive(false);
 
             }
-            else Debug.Log("NO");
 
             playerGlass.GetComponent<ShotGlass>().ClearValues();
         }
