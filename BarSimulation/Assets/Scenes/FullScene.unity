@@ -1536,24 +1536,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a712bf8b54b2ecb43a3be9dc23d4b413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barQ:
-  - {fileID: 686915948}
-  - {fileID: 382485014}
-  - {fileID: 2047948307}
-  - {fileID: 499877459}
-  waitQ:
-  - {fileID: 1138701263}
-  - {fileID: 1031853168}
-  - {fileID: 1318032339}
-  - {fileID: 1766158923}
-  chairQ:
-  - {fileID: 1465815057}
-  - {fileID: 2062758442}
-  - {fileID: 1393191751}
-  - {fileID: 587659423}
-  barQueuePos: []
-  waitQueuePos: []
-  chairQueuePos: []
+  barQ: []
+  waitQ: []
+  chairQ: []
+  barQueuePos:
+  - {fileID: 686915949}
+  - {fileID: 382485015}
+  - {fileID: 2047948308}
+  - {fileID: 499877460}
+  - {fileID: 408214258}
+  - {fileID: 1696670222}
+  - {fileID: 839563000}
+  - {fileID: 150056302}
+  - {fileID: 870960181}
+  waitQueuePos:
+  - {fileID: 1138701264}
+  - {fileID: 1031853169}
+  - {fileID: 1318032340}
+  - {fileID: 1766158924}
+  - {fileID: 61845967}
+  - {fileID: 49164865}
+  - {fileID: 61118754}
+  - {fileID: 551115572}
+  - {fileID: 1129857809}
+  chairQueuePos:
+  - {fileID: 1465815058}
+  - {fileID: 2062758443}
+  - {fileID: 1393191752}
+  - {fileID: 587659424}
+  - {fileID: 2129292617}
+  - {fileID: 1309473680}
+  - {fileID: 1675781060}
+  - {fileID: 942449570}
+  - {fileID: 1364996432}
   customer: {fileID: 2554743289910658173, guid: 6a4aaed46c01b9645a3cd4bb16f0e39c, type: 3}
   customerStart: {fileID: 1638607142}
 --- !u!4 &1900385913

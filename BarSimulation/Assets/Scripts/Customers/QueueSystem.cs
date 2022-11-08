@@ -39,7 +39,7 @@ public class QueueSystem : MonoBehaviour
 
     public bool AddToQueue(List<Transform> list, List<GameObject> objs, GameObject newobj)
     {
-        if (objs.Count >= list.Count || newobj == null)    return false;
+        if (objs.Count >= list.Count || newobj == null) return false;
 
         newobj.GetComponent<NavMeshAgent>().destination = list[objs.Count].position;
         objs.Add(newobj);
