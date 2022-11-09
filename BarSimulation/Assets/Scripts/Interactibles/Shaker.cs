@@ -45,7 +45,7 @@ public class Shaker : MonoBehaviour, IInteractible
                 shotGlass.gameObject.SetActive(true);
             }
 
-            for(int i = 0; i <= 5; i++)
+            for(int i = 0; i <= 2; i++)
             {
                 shotGlass.GetComponent<ShotGlass>().values[i] = val[i];
             }
