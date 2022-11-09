@@ -65,11 +65,10 @@ public class Customer : MonoBehaviour, IInteractible
 
             if (equal == true)
             {
-                gameObject.SetActive(false);
-                Debug.Log("YES");
-
+                player.GetComponent<PlayerControls>().serveCorrect();
             }
-            Debug.Log("No");
+            else player.GetComponent<PlayerControls>().serveWrong();
+            
 
             playerGlass.GetComponent<ShotGlass>().ClearValues();
         }
