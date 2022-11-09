@@ -6,7 +6,7 @@ using System.Linq;
 
 public class ShotGlass : MonoBehaviour
 {
-    public int[] values = { 0, 0, 0, 0, 0, 0 };
+    public int[] values = { 0, 0, 0 };
     
 
     private void Start()

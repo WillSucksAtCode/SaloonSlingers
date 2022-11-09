@@ -6,17 +6,41 @@ using System.Linq;
 
 public class Customer : MonoBehaviour, IInteractible
 {
-    public int[] values = { 0, 0, 0, 0, 0, 0 };
+    public int[] values = { 0, 0, 0 };
+    public string orderDrinkName;
     GameObject playerGlass;
+    Dictionary<string, int[]> drinks = new Dictionary<string, int[]>();
+
+    [SerializeField] Transform drinkText;
+    GameObject player;
 
     private void Start()
     {
+        drinkText = GetComponentInChildren<Transform>();
+        player = GameObject.Find("Player");
+
+        drinks.Add("Silverhand Special", new int[] { 3, 2, 3 });
+        drinks.Add("The Huntsman", new int[] { 3, 4, 3 });
+        drinks.Add("Death's Friend", new int[] { 4, 4, 4 });
+        drinks.Add("Killer Queen", new int[] { 2, 2, 2 });
+        drinks.Add("Loreley's Vanquisher", new int[] { 4, 4, 0 });
+        drinks.Add("Bit of Everything", new int[]{1, 1, 1});
+        drinks.Add("Drunken Outlaw", new int[] { 3, 3, 3 });
+        drinks.Add("Vodka", new int[] { 0, 4, 0 });
+        drinks.Add("Gin", new int[] { 0, 0, 4 });
+        drinks.Add("Beer", new int[] { 4, 0, 0 });
+
+
+
         OrderDrink();
+
+
     }
 
     // Start is called before the first frame update
     void Update()
     {
+        drinkText.LookAt(player.transform);
         if (playerGlass == null)
         {
             playerGlass = GameObject.Find("Glass");
@@ -29,12 +53,23 @@ public class Customer : MonoBehaviour, IInteractible
     {
         if (playerGlass != null)
         {
+            bool equal = true;
 
-            if (values.SequenceEqual(playerGlass.GetComponent<ShotGlass>().GetValues()))
+            for (int i = 0; i<=2; i++)
+            {
+                if (drinks[orderDrinkName][i] != playerGlass.GetComponent<ShotGlass>().GetValues()[i])
+                {
+                    equal = false;
+                }
+            }
+
+            if (equal == true)
             {
                 gameObject.SetActive(false);
+                Debug.Log("YES");
 
             }
+            Debug.Log("No");
 
             playerGlass.GetComponent<ShotGlass>().ClearValues();
         }
@@ -45,11 +80,13 @@ public class Customer : MonoBehaviour, IInteractible
     //Generates Customer drink value
     void OrderDrink()
     {
-        for (int i = 0; i <= 5; i++)
-        {
-            values[i] = Random.Range(0, 5);
-        }
-        Debug.Log("Customer Values: " + (values[0]) + " , " + values[1] + " , " + values[2] + " , " + values[3] + " , " + values[4] + " , " + values[5]);
+
+        
+        orderDrinkName = drinks.ElementAt(Random.Range(0, drinks.Count)).Key;
+        this.GetComponentInChildren<TextMesh>().text = orderDrinkName;
+
+
+        Debug.Log("Customer Order: " + orderDrinkName + ": " + (drinks[orderDrinkName][0]) + " , " + drinks[orderDrinkName][1] + " , " + drinks[orderDrinkName][2]);
 
     }
 

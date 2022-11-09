@@ -22,6 +22,7 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] LayerMask interactibleMask;
     [SerializeField] float interactRange;
     [SerializeField] GameObject interactText;
+
     
 
     // Start is called before the first frame update

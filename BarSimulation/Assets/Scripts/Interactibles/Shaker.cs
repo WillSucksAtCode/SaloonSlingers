@@ -7,8 +7,8 @@ using TMPro;
 
 public class Shaker : MonoBehaviour, IInteractible
 {
-    public int[] val = { 0, 0, 0, 0, 0, 0 };
-    int[] empty = { 0, 0, 0, 0, 0, 0 };
+    public int[] val = { 0, 0, 0 };
+    int[] empty = { 0, 0, 0 };
     [SerializeField] GameObject shotGlass;
 
     [SerializeField] GameObject DrinksUIParent;
