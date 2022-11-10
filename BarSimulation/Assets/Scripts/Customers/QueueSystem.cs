@@ -7,10 +7,8 @@ public class QueueSystem : MonoBehaviour
 {
     public List<GameObject> barQ = new List<GameObject>();
     public List<GameObject> waitQ = new List<GameObject>();
-    public List<GameObject> chairQ = new List<GameObject>();
     public List<Transform> barQueuePos = new List<Transform>();
     public List<Transform> waitQueuePos = new List<Transform>();
-    public List<Transform> chairQueuePos = new List<Transform>();
 
     public GameObject customer;
     public Transform customerStart;
@@ -26,10 +24,6 @@ public class QueueSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             AddToQueue(barQueuePos, barQ, Instantiate(customer, customerStart.position, customerStart.rotation));
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            AddToQueue(chairQueuePos, chairQ, RemoveFront(waitQueuePos, waitQ));
         }
     }
 

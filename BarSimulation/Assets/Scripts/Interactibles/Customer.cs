@@ -21,7 +21,6 @@ public class Customer : MonoBehaviour, IInteractible
 
     private void Start()
     {
-        drinkText = GetComponentInChildren<Transform>();
         queue = FindObjectOfType<QueueSystem>();
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player");
@@ -72,6 +71,7 @@ public class Customer : MonoBehaviour, IInteractible
 
             if (equal == true)
             {
+                drinkText.gameObject.SetActive(false);
                 player.GetComponent<PlayerControls>().serveCorrect();
                 queue.MoveBar();
             }

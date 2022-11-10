@@ -215,9 +215,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832568b291e725c499a61ec1d5b2749e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  values: 000000000100000002000000000000000100000000000000
+  values: 000000000000000000000000
   orderDrinkName: 
-  drinkText: {fileID: 3734211224560558894}
+  queue: {fileID: 0}
+  drinkText: {fileID: 3734211223160483346}
 --- !u!195 &-472900865685463971
 NavMeshAgent:
   m_ObjectHideFlags: 0
