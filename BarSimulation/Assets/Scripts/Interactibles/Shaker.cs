@@ -15,7 +15,7 @@ public class Shaker : MonoBehaviour, IInteractible
 
     [SerializeField] GameObject DrinksUIParent;
     public Transform[] drinkUITexts;
-    GameObject player;
+    [SerializeField] GameObject player;
     private void Start()
     {
         drinkUITexts = DrinksUIParent.GetComponentsInChildren<Transform>();

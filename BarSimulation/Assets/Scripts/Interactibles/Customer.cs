@@ -14,6 +14,9 @@ public class Customer : MonoBehaviour, IInteractible
     private NavMeshAgent agent;
     private bool ordered = false;
 
+    public bool walk;
+    Vector3 oldPosition;
+
     public QueueSystem queue;
 
     [SerializeField] Transform drinkText;
@@ -21,6 +24,7 @@ public class Customer : MonoBehaviour, IInteractible
 
     private void Start()
     {
+        oldPosition = transform.position;
         queue = FindObjectOfType<QueueSystem>();
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player");
@@ -40,9 +44,20 @@ public class Customer : MonoBehaviour, IInteractible
     // Start is called before the first frame update
     void Update()
     {
+        if (oldPosition != transform.position)
+        {
+            walk = true;
+            GetComponent<Animator>().SetBool("Walk", true);
+        } else
+        {
+            walk = false;
+            GetComponent<Animator>().SetBool("Walk", false);
+        }
+        oldPosition = transform.position;
         if (!agent.pathPending && agent.remainingDistance < 0.5f && !ordered)
         {
             OrderDrink();
+            drinkText.gameObject.SetActive(true);
             ordered = true;
         }
 
@@ -92,7 +107,7 @@ public class Customer : MonoBehaviour, IInteractible
 
 
         orderDrinkName = drinks.ElementAt(Random.Range(0, drinks.Count)).Key;
-        this.GetComponentInChildren<TextMesh>().text = orderDrinkName;
+        drinkText.GetComponent<TextMesh>().text = orderDrinkName;
 
 
         Debug.Log("Customer Order: " + orderDrinkName + ": " + (drinks[orderDrinkName][0]) + " , " + drinks[orderDrinkName][1] + " , " + drinks[orderDrinkName][2]);

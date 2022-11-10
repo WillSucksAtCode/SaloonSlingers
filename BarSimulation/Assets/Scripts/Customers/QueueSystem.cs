@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,17 +13,28 @@ public class QueueSystem : MonoBehaviour
     public GameObject customer;
     public Transform customerStart;
 
+    public GameObject spawnLocation;
+
+    private float time = 0.0f;
+    public float customerSpawnDelay = 10.0f;
+    public int spawnLimit = 8;
     private void Start()
     {
-        
+        spawnLocation = GameObject.Find("SpawnLocation");
     }
 
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
+        if (time >= customerSpawnDelay && spawnLocation.transform.childCount <= spawnLimit)
+        {
+            time = 0.0f;
+            AddToQueue(barQueuePos, barQ, Instantiate(customer, customerStart.position, customerStart.rotation, spawnLocation.transform));
+        }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            AddToQueue(barQueuePos, barQ, Instantiate(customer, customerStart.position, customerStart.rotation));
+            AddToQueue(barQueuePos, barQ, Instantiate(customer, customerStart.position, customerStart.rotation, spawnLocation.transform));
         }
     }
 

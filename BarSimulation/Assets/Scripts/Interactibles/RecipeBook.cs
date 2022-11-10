@@ -13,9 +13,9 @@ public class RecipeBook : MonoBehaviour, IInteractible
     }
     private void Update()
     {
-        Debug.Log(Vector3.Distance(player.transform.position, transform.position));   
+        //Debug.Log(Vector3.Distance(player.transform.position, transform.position));   
         if(activeRange < Vector3.Distance(player.transform.position, transform.position)){
-            Debug.Log("Disabled");
+            //Debug.Log("Disabled");
             canvas.SetActive(false);
         }
     }

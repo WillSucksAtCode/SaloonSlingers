@@ -113,7 +113,11 @@ public class PlayerControls : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
             var interactible = hit.transform.gameObject.GetComponent<IInteractible>();
-            if (interactible == null) return;
+            if (interactible == null) {
+                Debug.Log("noninteractible");
+                return;
+            }
+            
             interactible.Interact();
 
 
