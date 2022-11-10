@@ -72,6 +72,10 @@ public class Customer : MonoBehaviour, IInteractible
 
             if (equal == true)
             {
+                player.GetComponent<PlayerControls>().serveCorrect();
+            }
+            else player.GetComponent<PlayerControls>().serveWrong();
+            
                 queue.MoveBar();
                 //gameObject.SetActive(false);
                 Debug.Log("YES");

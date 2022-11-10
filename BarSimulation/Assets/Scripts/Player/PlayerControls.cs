@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Audio;
 public class PlayerControls : MonoBehaviour
 {
     public Rigidbody reggy;
@@ -11,8 +12,9 @@ public class PlayerControls : MonoBehaviour
     private InputAction interact;
     public PlayerInputs playerContr;
 
-    AudioSource audioSource;
+    [SerializeField] AudioSource walkAudioSource;
 
+    [SerializeField] AudioSource audioSource;
 
 
     [SerializeField] float sprintSpeedIncrease = 15.0f;
@@ -22,15 +24,41 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] LayerMask interactibleMask;
     [SerializeField] float interactRange;
     [SerializeField] GameObject interactText;
+    [SerializeField] AudioClip coinSound;
+    [SerializeField] AudioClip bottleMixingSound;
+    [SerializeField] AudioClip servingSound;
 
-    
+
+    public void bottleMix()
+    {
+        audioSource.PlayOneShot(bottleMixingSound, 1.0f);
+    }
+
+    IEnumerator serveCorrectSound()
+    {
+        audioSource.PlayOneShot(servingSound, 1.0f);
+        yield return new WaitForSeconds(0.5f);
+        audioSource.PlayOneShot(coinSound, 1.0f);
+
+    }
+
+    public void serveCorrect()
+    {
+        StartCoroutine(serveCorrectSound());
+    }
+
+    public void serveWrong()
+    {
+        audioSource.PlayOneShot(servingSound, 1.0f);
+    }
+
 
     // Start is called before the first frame update
     void Awake()
     {
         originalSpeed = speed;
         playerContr = new PlayerInputs();
-        audioSource = GetComponent<AudioSource>();
+        
         reggy = GetComponent<Rigidbody>();
     }
 
@@ -48,7 +76,7 @@ public class PlayerControls : MonoBehaviour
         {
             speed = originalSpeed;
         }
-
+        
         CheckIfInteractible();
     }
 
@@ -57,10 +85,10 @@ public class PlayerControls : MonoBehaviour
         reggy.velocity = transform.right * movementDir.x * speed + transform.forward * movementDir.y * speed;
         if (reggy.velocity != new Vector3(0, 0, 0))
         {
-            audioSource.mute = false;
+            walkAudioSource.mute = false;
         } else
         {
-            audioSource.mute = true;
+            walkAudioSource.mute = true;
         }
     }
     private void OnEnable()

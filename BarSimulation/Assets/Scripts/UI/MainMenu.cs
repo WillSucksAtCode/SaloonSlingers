@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(""); // will change this to whatever our scene is called later
+        SceneManager.LoadScene("FullScene"); // will change this to whatever our scene is called later
         newGame = true;
     }
 
