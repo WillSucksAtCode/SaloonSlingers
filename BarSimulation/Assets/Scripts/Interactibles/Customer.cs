@@ -55,14 +55,14 @@ public class Customer : MonoBehaviour, IInteractible
         
     }
 
-    
+
     public void Interact()
     {
         if (playerGlass != null)
         {
             bool equal = true;
 
-            for (int i = 0; i<=2; i++)
+            for (int i = 0; i <= 2; i++)
             {
                 if (drinks[orderDrinkName][i] != playerGlass.GetComponent<ShotGlass>().GetValues()[i])
                 {
@@ -73,27 +73,24 @@ public class Customer : MonoBehaviour, IInteractible
             if (equal == true)
             {
                 player.GetComponent<PlayerControls>().serveCorrect();
+                queue.MoveBar();
             }
             else player.GetComponent<PlayerControls>().serveWrong();
-            
-                queue.MoveBar();
-                //gameObject.SetActive(false);
-                Debug.Log("YES");
 
-            }
-            Debug.Log("No");
+
+
+
 
             playerGlass.GetComponent<ShotGlass>().ClearValues();
         }
-        
-
     }
+
 
     //Generates Customer drink value
     void OrderDrink()
     {
 
-        
+
         orderDrinkName = drinks.ElementAt(Random.Range(0, drinks.Count)).Key;
         this.GetComponentInChildren<TextMesh>().text = orderDrinkName;
 
@@ -101,5 +98,4 @@ public class Customer : MonoBehaviour, IInteractible
         Debug.Log("Customer Order: " + orderDrinkName + ": " + (drinks[orderDrinkName][0]) + " , " + drinks[orderDrinkName][1] + " , " + drinks[orderDrinkName][2]);
 
     }
-
 }
