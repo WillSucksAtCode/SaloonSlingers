@@ -26,5 +26,10 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Exiting Game..."); // to show it works without needing to build
         Application.Quit(); // this only works once the game is built
     }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
 

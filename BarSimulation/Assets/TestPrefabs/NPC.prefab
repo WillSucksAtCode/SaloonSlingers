@@ -1368,6 +1368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   values: 000000000000000000000000
   orderDrinkName: 
+  walk: 0
   queue: {fileID: 0}
   drinkText: {fileID: 3717777343125099783}
 --- !u!195 &3415442911358205662
