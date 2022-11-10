@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using System.Linq;
 
 
@@ -10,6 +11,10 @@ public class Customer : MonoBehaviour, IInteractible
     public string orderDrinkName;
     GameObject playerGlass;
     Dictionary<string, int[]> drinks = new Dictionary<string, int[]>();
+    private NavMeshAgent agent;
+    private bool ordered = false;
+
+    public QueueSystem queue;
 
     [SerializeField] Transform drinkText;
     GameObject player;
@@ -17,6 +22,8 @@ public class Customer : MonoBehaviour, IInteractible
     private void Start()
     {
         drinkText = GetComponentInChildren<Transform>();
+        queue = FindObjectOfType<QueueSystem>();
+        agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player");
 
         drinks.Add("Silverhand Special", new int[] { 3, 2, 3 });
@@ -29,17 +36,17 @@ public class Customer : MonoBehaviour, IInteractible
         drinks.Add("Vodka", new int[] { 0, 4, 0 });
         drinks.Add("Gin", new int[] { 0, 0, 4 });
         drinks.Add("Beer", new int[] { 4, 0, 0 });
-
-
-
-        OrderDrink();
-
-
     }
 
     // Start is called before the first frame update
     void Update()
     {
+        if (!agent.pathPending && agent.remainingDistance < 0.5f && !ordered)
+        {
+            OrderDrink();
+            ordered = true;
+        }
+
         drinkText.LookAt(player.transform);
         if (playerGlass == null)
         {
@@ -65,7 +72,8 @@ public class Customer : MonoBehaviour, IInteractible
 
             if (equal == true)
             {
-                gameObject.SetActive(false);
+                queue.MoveBar();
+                //gameObject.SetActive(false);
                 Debug.Log("YES");
 
             }

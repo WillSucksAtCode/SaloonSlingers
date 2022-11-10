@@ -27,10 +27,6 @@ public class QueueSystem : MonoBehaviour
         {
             AddToQueue(barQueuePos, barQ, Instantiate(customer, customerStart.position, customerStart.rotation));
         }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            AddToQueue(waitQueuePos, waitQ, RemoveFront(barQueuePos, barQ));
-        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             AddToQueue(chairQueuePos, chairQ, RemoveFront(waitQueuePos, waitQ));
@@ -67,5 +63,10 @@ public class QueueSystem : MonoBehaviour
             //set targets here
             agent.destination = list[i++].position;
         }
+    }
+
+    public void MoveBar()
+    {
+        AddToQueue(waitQueuePos, waitQ, RemoveFront(barQueuePos, barQ));
     }
 }

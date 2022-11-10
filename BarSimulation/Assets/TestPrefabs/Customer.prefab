@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 3734211223160483347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: -0.19567, y: 0.19567, z: 0.19567}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3734211224560558894}
@@ -88,14 +88,14 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3734211223160483347}
-  m_Text: asdfg
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 0.42
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 100
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: e423e6d74dbb77746947c5db494e2daa, type: 3}
@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 3734211224560558892}
   - component: {fileID: 3734211224560558893}
   - component: {fileID: 3734211224560558898}
+  - component: {fileID: -472900865685463971}
   m_Layer: 6
   m_Name: Customer
   m_TagString: Untagged
@@ -131,8 +132,8 @@ Transform:
   m_GameObject: {fileID: 3734211224560558899}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.68, y: 0.86, z: 6.35}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3734211223160483346}
   m_Father: {fileID: 0}
@@ -216,4 +217,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   values: 000000000100000002000000000000000100000000000000
   orderDrinkName: 
-  drinkText: {fileID: 0}
+  drinkText: {fileID: 3734211224560558894}
+--- !u!195 &-472900865685463971
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3734211224560558899}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

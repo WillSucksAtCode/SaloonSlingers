@@ -7,6 +7,8 @@ using TMPro;
 
 public class Shaker : MonoBehaviour, IInteractible
 {
+    public AudioClip clip;
+
     public int[] val = { 0, 0, 0 };
     int[] empty = { 0, 0, 0 };
     [SerializeField] GameObject shotGlass;
@@ -48,6 +50,7 @@ public class Shaker : MonoBehaviour, IInteractible
             for(int i = 0; i <= 2; i++)
             {
                 shotGlass.GetComponent<ShotGlass>().values[i] = val[i];
+                AudioSource.PlayClipAtPoint(clip, transform.position);
             }
 
             Array.Clear(val, 0, val.Length);
