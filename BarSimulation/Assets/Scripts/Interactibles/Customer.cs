@@ -5,28 +5,23 @@ using UnityEngine.AI;
 using System.Linq;
 
 
-public class Customer : MonoBehaviour, IInteractible
+public class Customer : NPC, IInteractible
 {
     public int[] values = { 0, 0, 0 };
     public string orderDrinkName;
     GameObject playerGlass;
     Dictionary<string, int[]> drinks = new Dictionary<string, int[]>();
-    private NavMeshAgent agent;
-    private bool ordered = false;
+    bool ordered = false;
 
-    public bool walk;
-    Vector3 oldPosition;
-
-    public QueueSystem queue;
+    
 
     [SerializeField] Transform drinkText;
     GameObject player;
 
     private void Start()
     {
-        oldPosition = transform.position;
-        queue = FindObjectOfType<QueueSystem>();
-        agent = GetComponent<NavMeshAgent>();
+        base.Start();
+
         player = GameObject.Find("Player");
 
         drinks.Add("Silverhand Special", new int[] { 3, 2, 3 });
@@ -44,16 +39,14 @@ public class Customer : MonoBehaviour, IInteractible
     // Start is called before the first frame update
     void Update()
     {
-        if (oldPosition != transform.position)
-        {
-            walk = true;
-            GetComponent<Animator>().SetBool("Walk", true);
-        } else
-        {
-            walk = false;
-            GetComponent<Animator>().SetBool("Walk", false);
-        }
-        oldPosition = transform.position;
+        Walk();
+        
+    }
+
+    public override void Walk()
+    {
+        base.Walk();
+
         if (!agent.pathPending && agent.remainingDistance < 0.5f && !ordered)
         {
             OrderDrink();
@@ -66,11 +59,9 @@ public class Customer : MonoBehaviour, IInteractible
         {
             playerGlass = GameObject.Find("Glass");
         }
-        
+
     }
-
-
-    public void Interact()
+    public override void Interact()
     {
         if (playerGlass != null)
         {
