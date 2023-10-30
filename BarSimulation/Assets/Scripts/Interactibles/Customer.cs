@@ -10,10 +10,10 @@ public class Customer : NPC, IInteractible
     public int[] values = { 0, 0, 0 };
     public string orderDrinkName;
     GameObject playerGlass;
-    Dictionary<string, int[]> drinks = new Dictionary<string, int[]>();
+    public Dictionary<string, int[]> drinks = new Dictionary<string, int[]>();
     bool ordered = false;
 
-    
+    [SerializeField] DrinkScriptableData[] drinkList;
 
     [SerializeField] Transform drinkText;
     GameObject player;
@@ -24,16 +24,12 @@ public class Customer : NPC, IInteractible
 
         player = GameObject.Find("Player");
 
-        drinks.Add("Silverhand Special", new int[] { 3, 2, 3 });
-        drinks.Add("The Huntsman", new int[] { 3, 4, 3 });
-        drinks.Add("Death's Friend", new int[] { 4, 4, 4 });
-        drinks.Add("Killer Queen", new int[] { 2, 2, 2 });
-        drinks.Add("Loreley's Vanquisher", new int[] { 4, 4, 0 });
-        drinks.Add("Bit of Everything", new int[]{1, 1, 1});
-        drinks.Add("Drunken Outlaw", new int[] { 3, 3, 3 });
-        drinks.Add("Vodka", new int[] { 0, 4, 0 });
-        drinks.Add("Gin", new int[] { 0, 0, 4 });
-        drinks.Add("Beer", new int[] { 4, 0, 0 });
+        foreach (DrinkScriptableData drink in drinkList)
+        {
+            drinks.Add(drink.drinkName, new int[] { drink.beerValue, drink.vodkaValue, drink.GinValue }); 
+        }
+
+        
     }
 
     // Start is called before the first frame update
