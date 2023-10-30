@@ -15,8 +15,17 @@ public class Liquor : MonoBehaviour, IInteractible
     {
         AudioSource.PlayClipAtPoint(clip, transform.position);
         shaker.GetComponent<Shaker>().AddDrink((int)liquorType);
+        ChangeColor();
     }
-    
 
-    
+    private void Update()
+    {
+        Debug.Log(GetComponent<Renderer>().material);
+    }
+
+    public void ChangeColor()
+    {
+        GetComponent<Renderer>().material.color = new Color(Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 1f));
+    }
+
 }
