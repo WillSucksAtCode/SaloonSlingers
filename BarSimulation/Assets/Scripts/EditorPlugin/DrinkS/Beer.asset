@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfe37351572fdb42be37c2a79226895, type: 3}
   m_Name: Beer
   m_EditorClassIdentifier: 
-  drinkName: 
-  beerValue: 0
+  drinkName: Beer
+  beerValue: 4
   vodkaValue: 0
   GinValue: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfe37351572fdb42be37c2a79226895, type: 3}
   m_Name: Silverhand
   m_EditorClassIdentifier: 
-  drinkName: 
-  beerValue: 0
-  vodkaValue: 0
-  GinValue: 0
+  drinkName: Silverhand Special
+  beerValue: 3
+  vodkaValue: 2
+  GinValue: 3
