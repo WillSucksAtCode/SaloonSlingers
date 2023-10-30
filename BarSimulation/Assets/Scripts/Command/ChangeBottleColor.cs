@@ -3,14 +3,16 @@ using UnityEngine;
 public class ChangeBottleColor : IColorCommand
 {
     Liquor _liquor;
+    Color _newColor;
 
-    public ChangeBottleColor(Liquor liquor)
+    public ChangeBottleColor(Liquor liquor, Color newColor)
     {
         _liquor = liquor;
+        _newColor = newColor;
     }
 
     public void Execute()
     {
-        _liquor.GetComponent<Renderer>().material.color = new Color(Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 1f));
+        _liquor.GetComponent<Renderer>().material.color = _newColor;
     }
 }

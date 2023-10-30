@@ -24,8 +24,8 @@ public class Liquor : MonoBehaviour, IInteractible
     }
 
     public void ChangeColor()
-    { 
-        IColorCommand command = GetComponent<ChangeBottleColor>();
+    {
+        ChangeBottleColor command = new ChangeBottleColor(this, new Color(Random.Range(0.5f, 1f), Random.Range(0.5f, 1f), Random.Range(0.5f, 1f)));
         command.Execute();
     }
 
