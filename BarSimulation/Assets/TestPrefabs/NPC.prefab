@@ -1391,6 +1391,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 001d1e8e851bcce4e871ee18da491cc2, type: 2}
   - {fileID: 11400000, guid: 88c5aa8843fe035499eaf1991edc4fa5, type: 2}
   - {fileID: 11400000, guid: dfea3ae4c3d6c5d4e8a5d8c6398e3a2c, type: 2}
+  - {fileID: 11400000, guid: 06ac481020fd6204881981502e2d64a2, type: 2}
   drinkText: {fileID: 3717777343125099783}
 --- !u!195 &3415442911358205662
 NavMeshAgent:
