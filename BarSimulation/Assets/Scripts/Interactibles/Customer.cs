@@ -16,6 +16,7 @@ public class Customer : NPC, IInteractible
     [SerializeField] DrinkScriptableData[] drinkList;
 
     [SerializeField] Transform drinkText;
+    [SerializeField] Timer angerTimer;
     GameObject player;
 
     private void Start()
@@ -76,6 +77,7 @@ public class Customer : NPC, IInteractible
                 drinkText.gameObject.SetActive(false);
                 player.GetComponent<PlayerControls>().serveCorrect();
                 queue.MoveBar();
+                angerTimer.enabled = false;
             }
             else player.GetComponent<PlayerControls>().serveWrong();
 

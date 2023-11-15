@@ -74,4 +74,9 @@ public class QueueSystem : MonoBehaviour
     {
         AddToQueue(waitQueuePos, waitQ, RemoveFront(barQueuePos, barQ));
     }
+
+    public void LeaveBar()
+    {
+        RemoveFront(waitQueuePos, waitQ);
+    }
 }

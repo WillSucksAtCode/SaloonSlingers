@@ -3308,6 +3308,7 @@ GameObject:
   - component: {fileID: 8531098600443932319}
   - component: {fileID: 3932357904337266085}
   - component: {fileID: 4516873978961874785}
+  - component: {fileID: 2767375276843517471}
   m_Layer: 6
   m_Name: NPC
   m_TagString: Untagged
@@ -3405,6 +3406,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 88c5aa8843fe035499eaf1991edc4fa5, type: 2}
   - {fileID: 11400000, guid: dfea3ae4c3d6c5d4e8a5d8c6398e3a2c, type: 2}
   drinkText: {fileID: 7681637977526420806}
+  angerTimer: {fileID: 4516873978961874785}
 --- !u!195 &8531098600443932319
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3457,6 +3459,19 @@ MonoBehaviour:
   angerMeter: 30
   slider: {fileID: 8140869197478211585}
   angerUI: {fileID: 6412638875489747143}
+--- !u!114 &2767375276843517471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8531098600443932312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad3894429c9caf43be0d35f0b124704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drinkMeter: 10
 --- !u!1 &8742819852184049836
 GameObject:
   m_ObjectHideFlags: 0
