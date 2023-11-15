@@ -7,8 +7,10 @@ public class QueueSystem : MonoBehaviour
 {
     public List<GameObject> barQ = new List<GameObject>();
     public List<GameObject> waitQ = new List<GameObject>();
+    public List<GameObject> leaveQ = new List<GameObject>();
     public List<Transform> barQueuePos = new List<Transform>();
     public List<Transform> waitQueuePos = new List<Transform>();
+    public List<Transform> leaveQueuePos = new List<Transform>();
 
     public GameObject customer;
     public Transform customerStart;
@@ -77,6 +79,6 @@ public class QueueSystem : MonoBehaviour
 
     public void LeaveBar()
     {
-        RemoveFront(waitQueuePos, waitQ);
+        AddToQueue(leaveQueuePos, leaveQ, RemoveFront(waitQueuePos, waitQ));
     }
 }

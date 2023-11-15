@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.AI;
 
 public class DrinkTimer : MonoBehaviour
@@ -16,6 +15,11 @@ public class DrinkTimer : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
+    private void OnEnable()
+    {
+        timePassed = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -27,6 +31,7 @@ public class DrinkTimer : MonoBehaviour
         if (drinkMeter <= timePassed)
         {
             Debug.Log("Im refreshed!");
+            GetComponent<Customer>().LeaveBar();
 
         }
 

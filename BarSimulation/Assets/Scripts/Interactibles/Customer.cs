@@ -17,6 +17,7 @@ public class Customer : NPC, IInteractible
 
     [SerializeField] Transform drinkText;
     [SerializeField] Timer angerTimer;
+    [SerializeField] DrinkTimer DrinkTimer;
     GameObject player;
 
     private void Start()
@@ -78,6 +79,7 @@ public class Customer : NPC, IInteractible
                 player.GetComponent<PlayerControls>().serveCorrect();
                 queue.MoveBar();
                 angerTimer.enabled = false;
+                DrinkTimer.enabled = true;
             }
             else player.GetComponent<PlayerControls>().serveWrong();
 
@@ -101,5 +103,10 @@ public class Customer : NPC, IInteractible
 
         Debug.Log("Customer Order: " + orderDrinkName + ": " + (drinks[orderDrinkName][0]) + " , " + drinks[orderDrinkName][1] + " , " + drinks[orderDrinkName][2]);
 
+    }
+
+    public void LeaveBar()
+    {
+        queue.LeaveBar();
     }
 }

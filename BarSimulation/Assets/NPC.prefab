@@ -3407,6 +3407,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dfea3ae4c3d6c5d4e8a5d8c6398e3a2c, type: 2}
   drinkText: {fileID: 7681637977526420806}
   angerTimer: {fileID: 4516873978961874785}
+  DrinkTimer: {fileID: 2767375276843517471}
 --- !u!195 &8531098600443932319
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3471,7 +3472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad3894429c9caf43be0d35f0b124704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drinkMeter: 10
+  drinkMeter: 20
 --- !u!1 &8742819852184049836
 GameObject:
   m_ObjectHideFlags: 0
