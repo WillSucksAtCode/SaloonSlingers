@@ -18,7 +18,7 @@ public class QueueSystem : MonoBehaviour
     public GameObject spawnLocation;
 
     private float time = 0.0f;
-    public float customerSpawnDelay = 10.0f;
+    public float customerSpawnDelay = 7.0f;
     public int spawnLimit = 8;
     private void Start()
     {
@@ -37,6 +37,10 @@ public class QueueSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             AddToQueue(barQueuePos, barQ, Instantiate(customer, customerStart.position, customerStart.rotation, spawnLocation.transform));
+        }
+        if (leaveQ[0] == null)
+        {
+            RemoveFront(leaveQueuePos, leaveQ);
         }
     }
 

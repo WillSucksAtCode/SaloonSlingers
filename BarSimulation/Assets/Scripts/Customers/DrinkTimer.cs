@@ -7,7 +7,8 @@ public class DrinkTimer : MonoBehaviour
 {
     private NavMeshAgent agent;
     private float timePassed = 0;
-    public float drinkMeter;
+    private float drinkMeter = 20;
+    bool kill = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,12 @@ public class DrinkTimer : MonoBehaviour
         {
             Debug.Log("Im refreshed!");
             GetComponent<Customer>().LeaveBar();
-
+            if (kill)
+            {
+                Destroy(gameObject);
+            }
+            kill = true;
+            drinkMeter = 5;
         }
 
         if (agent.pathPending)
