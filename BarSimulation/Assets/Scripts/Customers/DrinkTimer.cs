@@ -32,7 +32,7 @@ public class DrinkTimer : MonoBehaviour
         if (drinkMeter <= timePassed)
         {
             Debug.Log("Im refreshed!");
-            GetComponent<Customer>().LeaveBar();
+            GetComponent<Customer>().custState = Customer.CustomerState.LEAVE;
             if (kill)
             {
                 Destroy(gameObject);
