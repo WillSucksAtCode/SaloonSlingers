@@ -7,8 +7,10 @@ public class QueueSystem : MonoBehaviour
 {
     public List<GameObject> barQ = new List<GameObject>();
     public List<GameObject> waitQ = new List<GameObject>();
+    public List<GameObject> leaveQ = new List<GameObject>();
     public List<Transform> barQueuePos = new List<Transform>();
     public List<Transform> waitQueuePos = new List<Transform>();
+    public List<Transform> leaveQueuePos = new List<Transform>();
 
     public GameObject customer;
     public Transform customerStart;
@@ -16,7 +18,7 @@ public class QueueSystem : MonoBehaviour
     public GameObject spawnLocation;
 
     private float time = 0.0f;
-    public float customerSpawnDelay = 10.0f;
+    public float customerSpawnDelay = 7.0f;
     public int spawnLimit = 8;
     private void Start()
     {
@@ -35,6 +37,10 @@ public class QueueSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             AddToQueue(barQueuePos, barQ, Instantiate(customer, customerStart.position, customerStart.rotation, spawnLocation.transform));
+        }
+        if (leaveQ[0] == null)
+        {
+            RemoveFront(leaveQueuePos, leaveQ);
         }
     }
 
@@ -73,5 +79,10 @@ public class QueueSystem : MonoBehaviour
     public void MoveBar()
     {
         AddToQueue(waitQueuePos, waitQ, RemoveFront(barQueuePos, barQ));
+    }
+
+    public void LeaveBar()
+    {
+        AddToQueue(leaveQueuePos, leaveQ, RemoveFront(waitQueuePos, waitQ));
     }
 }

@@ -10,12 +10,15 @@ public class Customer : NPC, IInteractible
     public int[] values = { 0, 0, 0 };
     public string orderDrinkName;
     GameObject playerGlass;
+    public CustomerState custState = CustomerState.WALK;
     public Dictionary<string, int[]> drinks = new Dictionary<string, int[]>();
     bool ordered = false;
 
     [SerializeField] DrinkScriptableData[] drinkList;
 
     [SerializeField] Transform drinkText;
+    [SerializeField] Timer angerTimer;
+    [SerializeField] DrinkTimer DrinkTimer;
     GameObject player;
 
     private void Start()
@@ -35,8 +38,24 @@ public class Customer : NPC, IInteractible
     // Start is called before the first frame update
     void Update()
     {
-        Walk();
-        
+        switch (custState)
+        {
+            case CustomerState.WALK:
+                Walk();
+                break;
+            case CustomerState.ORDER:
+                OrderDrink();
+                custState = CustomerState.WALK;
+                break;
+            case CustomerState.DRINK:
+                queue.MoveBar();
+                custState = CustomerState.WALK;
+                break;
+            case CustomerState.LEAVE:
+                queue.LeaveBar();
+                custState = CustomerState.WALK;
+                break;
+        }   
     }
 
     public override void Walk()
@@ -45,9 +64,9 @@ public class Customer : NPC, IInteractible
 
         if (!agent.pathPending && agent.remainingDistance < 0.5f && !ordered)
         {
-            OrderDrink();
             drinkText.gameObject.SetActive(true);
             ordered = true;
+            custState = CustomerState.ORDER;
         }
 
         drinkText.LookAt(player.transform);
@@ -75,7 +94,9 @@ public class Customer : NPC, IInteractible
             {
                 drinkText.gameObject.SetActive(false);
                 player.GetComponent<PlayerControls>().serveCorrect();
-                queue.MoveBar();
+                custState = CustomerState.DRINK;
+                angerTimer.enabled = false;
+                DrinkTimer.enabled = true;
             }
             else player.GetComponent<PlayerControls>().serveWrong();
 
@@ -99,5 +120,20 @@ public class Customer : NPC, IInteractible
 
         Debug.Log("Customer Order: " + orderDrinkName + ": " + (drinks[orderDrinkName][0]) + " , " + drinks[orderDrinkName][1] + " , " + drinks[orderDrinkName][2]);
 
+    }
+
+    public void LeaveBar()
+    {
+        queue.LeaveBar();
+    }
+
+    public enum CustomerState
+    {
+        WALK,
+        ORDER,
+        DRINK,
+        LEAVE,
+        ENABLE,
+        DISABLE
     }
 }
