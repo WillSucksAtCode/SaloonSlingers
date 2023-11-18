@@ -20,7 +20,7 @@ public class Liquor : MonoBehaviour, IInteractible
 
     private void Update()
     {
-        Debug.Log(GetComponent<Renderer>().material);
+        //Debug.Log(GetComponent<Renderer>().material);
     }
 
     public void ChangeColor()

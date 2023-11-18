@@ -20,10 +20,12 @@ public class Customer : NPC, IInteractible
     [SerializeField] Timer angerTimer;
     [SerializeField] DrinkTimer DrinkTimer;
     GameObject player;
-
+    GameObject achievementManager;
     private void Start()
     {
         base.Start();
+
+        achievementManager = GameObject.Find("AchievementManager");
 
         player = GameObject.Find("Player");
 
@@ -97,6 +99,7 @@ public class Customer : NPC, IInteractible
                 custState = CustomerState.DRINK;
                 angerTimer.enabled = false;
                 DrinkTimer.enabled = true;
+                achievementManager.GetComponent<AchievementManager>().AddCustomerServed();
             }
             else player.GetComponent<PlayerControls>().serveWrong();
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Linq;
 
 public class QueueSystem : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class QueueSystem : MonoBehaviour
         {
             AddToQueue(barQueuePos, barQ, Instantiate(customer, customerStart.position, customerStart.rotation, spawnLocation.transform));
         }
-        if (leaveQ[0] == null)
+        if (!leaveQ.Any())
         {
             RemoveFront(leaveQueuePos, leaveQ);
         }
