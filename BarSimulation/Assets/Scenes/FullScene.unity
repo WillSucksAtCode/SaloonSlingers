@@ -13752,7 +13752,7 @@ MonoBehaviour:
   pools:
   - tag: Char
     prefab: {fileID: 7963227578854237225, guid: e3b48a4bfdc74e84b904722e6330a4f7, type: 3}
-    initialSize: 50
+    initialSize: 101
 --- !u!114 &1493442526
 MonoBehaviour:
   m_ObjectHideFlags: 0

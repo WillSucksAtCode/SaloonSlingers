@@ -17,12 +17,12 @@ public class PedSpawner : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            for(int i =0; i < 40; i++)
+            for(int i =0; i < 100; i++)
             objPm.ReturnObject("Char",transform.position,transform.rotation);
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 100; i++)
                 Instantiate(pedprefab,transform.position,transform.rotation);
         }
     }
