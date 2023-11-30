@@ -1,8 +1,6 @@
 # SaloonSlingers
 
-Video Presentation: https://youtu.be/XoMTFwaOt0c
-
-Slide deck: https://docs.google.com/presentation/d/1Ew_toGVebvy6SQsGlSseg4nzn-xdOIOh_yrPMEhfkYA/edit?usp=sharing
+Slide deck: https://docs.google.com/presentation/d/1an3B8MXT8hZy7BEA0kPJxm8cKiV8Eo60b2QGxZf4uQw/edit?usp=sharing
 
 Contributions:
 
