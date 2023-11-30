@@ -2,6 +2,8 @@
 
 Slide deck: https://docs.google.com/presentation/d/1an3B8MXT8hZy7BEA0kPJxm8cKiV8Eo60b2QGxZf4uQw/edit?usp=sharing
 
+Link to Trello board: https://trello.com/invite/b/DoOMMcA0/ATTI724a06e31301656baa0dee3d7dc0781e642A5E8F/project-management
+
 Contributions:
 
 Ethan - 33% - Achievement System, C++ DLL, Factory Design - ![image](https://github.com/WillSucksAtCode/SaloonSlingers/assets/92412422/20328815-1dbe-4860-b7c2-c2a693264ef2)
