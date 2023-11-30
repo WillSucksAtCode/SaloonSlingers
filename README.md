@@ -6,7 +6,7 @@ Slide deck: https://docs.google.com/presentation/d/1Ew_toGVebvy6SQsGlSseg4nzn-xd
 
 Contributions:
 
-Zafra - 33% - Achievement System, DLL - ![image](https://github.com/WillSucksAtCode/SaloonSlingers/assets/92412422/20328815-1dbe-4860-b7c2-c2a693264ef2)
+Zafra - 33% - Achievement System, C++ DLL, Factory Design - ![image](https://github.com/WillSucksAtCode/SaloonSlingers/assets/92412422/20328815-1dbe-4860-b7c2-c2a693264ef2)
 
 William - 33% - State Pattern, Slide deck, Video - ![Signature](https://github.com/WillSucksAtCode/SaloonSlingers/assets/92412422/8d79499b-976a-444a-a330-88bfe77bb811)
 
